@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #0b0905;
+  }
+  body {
+    @apply bg-obsidian-900 text-gold-300 font-cormorant;
+    min-height: 100vh;
+    font-feature-settings: "lnum" 1, "tnum" 1;
+  }
+
+  input, textarea, select {
+    @apply bg-obsidian-950 border border-gold-800/30 text-gold-200 font-cormorant;
+    @apply rounded-sm px-3 py-2 outline-none w-full text-base;
+    @apply transition-all duration-200;
+    @apply focus:border-gold-600/60 focus:shadow-gold-sm;
+  }
+  input::placeholder, textarea::placeholder {
+    @apply text-obsidian-500 italic;
+  }
+  select option {
+    background-color: #100e06;
+  }
+}
+
+@layer components {
+  .gold-text {
+    background: linear-gradient(180deg, #F0D080 0%, #C9A84C 55%, #8B6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(201,168,76,0.35));
+  }
+
+  .panel {
+    @apply bg-obsidian-800 border border-gold-800/20 relative;
+    @apply rounded-sm;
+  }
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 8%; right: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+  }
+  .panel::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 8%; right: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent);
+  }
+
+  .btn-gold {
+    @apply font-cinzel text-xs tracking-widest uppercase;
+    @apply cursor-pointer transition-all duration-200;
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, #8B6914, #C9A84C, #E8C750, #C9A84C, #8B6914);
+    background-size: 200% auto;
+    color: #0b0905;
+    @apply font-semibold;
+    @apply shadow-gold-md;
+    letter-spacing: 0.2em;
+  }
+  .btn-gold:hover {
+    background-position: right center;
+    @apply shadow-gold-lg -translate-y-px;
+  }
+  .btn-gold:active {
+    @apply translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply font-cinzel text-xs tracking-widest uppercase;
+    @apply bg-transparent border border-gold-700/40 text-gold-600;
+    @apply cursor-pointer transition-all duration-200;
+    letter-spacing: 0.2em;
+  }
+  .btn-ghost:hover {
+    @apply border-gold-500/70 text-gold-400 -translate-y-px;
+  }
+
+  .cipher-nav-btn {
+    @apply font-cinzel text-xs tracking-widest uppercase;
+    @apply bg-transparent border border-gold-800/25 text-gold-700;
+    @apply cursor-pointer transition-all duration-200 px-4 py-2;
+    @apply relative;
+    letter-spacing: 0.15em;
+  }
+  .cipher-nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 50%; transform: translateX(-50%);
+    width: 0; height: 1px;
+    background: #C9A84C;
+    transition: width 0.25s;
+  }
+  .cipher-nav-btn:hover {
+    @apply text-gold-400 border-gold-600/50;
+  }
+  .cipher-nav-btn:hover::after { width: 65%; }
+  .cipher-nav-btn.active {
+    @apply text-obsidian-900 border-gold-500;
+    background: linear-gradient(135deg, #a8842a, #d4a94e, #a8842a);
+    @apply shadow-gold-sm font-semibold;
+  }
+  .cipher-nav-btn.active::after { display: none; }
+
+  .label-text {
+    @apply font-cinzel text-gold-700 uppercase tracking-widest block mb-1.5;
+    font-size: 0.9rem;
+  }
+
+  .result-box {
+    @apply bg-obsidian-950 border border-gold-800/25 rounded-sm;
+    @apply p-4 font-cormorant italic text-gold-200 text-lg leading-relaxed;
+    @apply tracking-wide break-all;
+    text-shadow: 0 0 12px rgba(201,168,76,0.25);
+  }
+
+  .divider-gold {
+    @apply border-none my-3;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent);
+  }
+
+  .ornament-line {
+    @apply flex items-center gap-3;
+  }
+  .ornament-line::before,
+  .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+  }
+  .ornament-line::before {
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4));
+  }
+  .ornament-line::after {
+    background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent);
+  }
+
+  .matrix-cell {
+    @apply w-9 h-9 flex items-center justify-center;
+    @apply bg-obsidian-950 border border-gold-700/30 rounded-sm;
+    @apply font-cinzel text-gold-400 text-xs;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0b0905; }
+::-webkit-scrollbar-thumb { background: #8b6914; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
